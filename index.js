@@ -29,12 +29,14 @@ function cC(value) {
       const createDiv = document.createElement("div");
       createDiv.classList.add("col-10", "col-lg-4");
       createDiv.innerHTML = `<div class="card">
-            <img src="${element.image}" class="card-img-top" alt="...">
+            <img src="${element.image}" class="card-img-top" style="height:200px;" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Features</h5>
-                <p class="card-text">${
-                  element.description ? element.description : nulTitle
-                }</p>
+                 <ol>
+                     <li>Natural language processing</li>
+                     <li>Contextual understanding</li>
+                     <li>Text generation</li>
+                 </ol>
                 <hr/>
                 <div class="d-flex justify-content-between align-items-center">
                 <div>
