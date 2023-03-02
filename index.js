@@ -1,5 +1,6 @@
  
 async function avoid(func) {
+    loader(true)
     const cautch = await fetch("https://openapi.programming-hero.com/api/ai/tools");  
     const final = await cautch.json() 
     func(final.data.tools);
@@ -45,8 +46,15 @@ function cC(value) {
             </div>
         </div>`;
       inject.appendChild(createDiv);
-      console.log(element);
+       loader(false)
     });
+}
+
+//loader function
+
+function loader(condition) {
+    const loaderSec = document.getElementById("loaderSec");
+    condition ? loaderSec.classList.remove('d-none') : loaderSec.classList.add('d-none')
 }
 
 
