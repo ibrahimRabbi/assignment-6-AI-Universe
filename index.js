@@ -22,7 +22,6 @@ document.getElementById("seeMore").addEventListener('click', function () {
 
 
 function cC(value) {
-     const nulTitle = "Features is not avilable";
     const inject = document.getElementById("inject");
     
     value.forEach((element) => {
@@ -41,9 +40,14 @@ function cC(value) {
                 <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <h5 class="card-title">${element.name}</h5>
+                  <div class="date-area d-flex align-items-center justify-content-center gap-1">
+                  <i class="fa-solid fa-calendar-days mb-3"></i>
                   <p>${element.published_in}<p/>
+                  </div>
                 </div>
-                <button>srch</button>
+                <a href="" class="btn">
+                <i class="modal-button fa-solid fa-circle-arrow-right"></i>
+                </a>
                 </div>
             </div>
         </div>`;
