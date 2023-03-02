@@ -45,15 +45,16 @@ function cC(value) {
                   <p>${element.published_in}<p/>
                   </div>
                 </div>
-                <a href="" class="btn">
+                <button onclick="modalData('${element.id}')" class="btn" data-bs-toggle="modal" data-bs-target="#createModal">
                 <i class="modal-button fa-solid fa-circle-arrow-right"></i>
-                </a>
+                </button>
                 </div>
             </div>
         </div>`;
       inject.appendChild(createDiv);
-       loader(false)
+      loader(false)
     });
+     
 }
 
 //loader function
@@ -62,6 +63,23 @@ function loader(condition) {
     const loaderSec = document.getElementById("loaderSec");
     condition ? loaderSec.classList.remove('d-none') : loaderSec.classList.add('d-none')
 }
+
+
+
+async function modalData(id) {
+  loader(true);
+  const fetching = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
+  const converting = await fetching.json();
+   createModal(converting)
+}
+
+function createModal(value) {
+  
+  const para = document.getElementById('para')
+  para.innerText = value.data.tool_name
+}
+
+ 
 
 
 
