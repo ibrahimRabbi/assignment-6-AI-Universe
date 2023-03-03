@@ -74,15 +74,49 @@ async function modalData(id) {
 }
 
 function createModal(value) {
-  
-  const para = document.getElementById('para')
-  para.innerText = value.data.tool_name
+
+    document.getElementById("description").innerText = value.data.description;
+
+
+    document.getElementById("price1").innerText = value.data.pricing[0].price;
+    document.getElementById("price2").innerText = value.data.pricing[1].price;
+    document.getElementById("price3").innerText = value.data.pricing[2].price;
+
+
+    document.getElementById("feature1").innerText = value.data.features[1].feature_name;
+    document.getElementById("feature2").innerText = value.data.features[2].feature_name 
+    document.getElementById("feature3").innerText = value.data.features[3].feature_name;
+    
+    
+    document.getElementById("integrations1").innerText = value.data.integrations[0];
+    document.getElementById("integrations2").innerText = value.data.integrations[1];
+    document.getElementById("integrations3").innerText = value.data.integrations[2];   
+
+
+    const imgCrd = document.getElementById('img-card');
+    imgCrd.innerHTML = " "
+    const create = document.createElement('div')
+    create.classList.add('card');
+    create.innerHTML = ` 
+                                <img src="${value.data.image_link[1]}" class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>`;
+    
+    imgCrd.appendChild(create)
+
+    console.log(value)
+                            
 }
 
- 
-
-
 
 
  
 
+
+
+
+ 

@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
     <style>
         button {
@@ -18,12 +18,13 @@
             font-weight: bold;
             font-size: 13px;
         }
-        .date-area{
+
+        .date-area {
             color: rgb(116, 114, 114);
             font-size: 13px;
         }
 
-        .modal-button{
+        .modal-button {
             font-size: 30px;
             color: rgb(250, 111, 111);
         }
@@ -31,18 +32,15 @@
 </head>
 
 <body>
-
     <!-- sort button section  -->
     <div class="text-center mt-4">
         <h3>AI Universe Hub</h3>
         <button class="mt-3">Sort By Date</button>
     </div>
 
-<!-- main content section  -->
+    <!-- main content section  -->
     <section class="container mx-auto my-4">
-        <div id="inject" class="row row-gap-4">
-
-        </div>
+        <div id="inject" class="row row-gap-4"></div>
 
         <div class="text-center mt-5">
             <button id="seeMore">see more</button>
@@ -52,7 +50,6 @@
     <!-- loader section  -->
     <section id="loaderSec" class="d-none">
         <div class="card" aria-hidden="true">
-
             <div class="card-body">
                 <h5 class="card-title placeholder-glow">
                     <span class="placeholder col-6"></span>
@@ -69,43 +66,69 @@
         </div>
     </section>
 
-
-
     <!-- modal section  -->
     <section id="modal-section">
         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div style="max-width: 80% !important" class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div id="modal" class="modal-body row">
+                        <div class="col-6">
+                            <div class="card">
+                                <h5 id="description">
+                                    
+                                </h5>
+
+                                <div class="d-flex justify-content-evenly align-items-center">
+                                    <div>
+                                        <p id="price1">Lorem, ipsum.</p>
+                                    </div>
+                                    <div>
+                                        <p id="price2">Lorem, ipsum.</p>
+                                    </div>
+                                    <div>
+                                        <p id="price3">Lorem, ipsum.</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-around">
+                                    <div>
+                                        <h4>Features</h4>
+                                        <ul>
+                                            <li id="feature1"></li>
+                                            <li id="feature2"></li>
+                                            <li id="feature3"></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4>integration</h4>
+                                        <ul>
+                                            <li id="integrations1"> </li>
+                                            <li id="integrations2"> </li>
+                                            <li id="integrations3"> </li>
+                                             
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="img-card" class="col-6">
+                            
+                        </div>
+
                     </div>
-        
-                    <div class="modal-body">
-                        <p id="para"></p>
-                    </div>
-        
                 </div>
             </div>
         </div>
     </section>
 
-
-     
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/79358fa5dd.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/79358fa5dd.js" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
 
