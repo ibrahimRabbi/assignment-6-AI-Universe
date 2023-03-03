@@ -6,6 +6,7 @@ button {
             padding: 8px 10px;
             font-weight: bold;
             font-size: 13px;
+            
         }
 
         .date-area {
@@ -20,7 +21,7 @@ button {
         }
 
         .border-danger {
-            background-image: linear-gradient(rgba(255, 0, 0, 0.274), rgba(250, 4, 4, 0.288));
+            background-image: linear-gradient(rgba(255, 0, 0, 0.205), rgba(250, 4, 4, 0.205));
         }
 
         .p-2 {

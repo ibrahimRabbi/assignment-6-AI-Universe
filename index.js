@@ -1,4 +1,4 @@
- 
+//  data fetching function 
 async function avoid(func) {
     loader(true)
     const cautch = await fetch("https://openapi.programming-hero.com/api/ai/tools");  
@@ -6,23 +6,26 @@ async function avoid(func) {
     func(final.data.tools);
 }
 
-
+// 6 card generet function  
 function createElement(value) {
     const sliced = value.slice(0, 6)
-    cC(sliced)  
+    createCards(sliced);  
 }
 avoid(createElement)
  
 
 
+// see more button function 
 document.getElementById("seeMore").addEventListener('click', function () {
-      avoid(cC)
+      avoid(createCards);
  })
 
 
 
-function cC(value) {
-    const inject = document.getElementById("inject");
+//  create card funtion 
+function createCards(value) {
+    const contentSection = document.getElementById("content-section");
+    contentSection.textContent = ' ';
     
     value.forEach((element) => {
       const createDiv = document.createElement("div");
@@ -32,9 +35,9 @@ function cC(value) {
             <div class="card-body">
                 <h5 class="card-title">Features</h5>
                  <ol>
-                     <li>Natural language processing</li>
-                     <li>Contextual understanding</li>
-                     <li>Text generation</li>
+                     <li>${element.features[0]}</li>
+                     <li>${element.features[1]}</li>
+                     <li>${element.features[0]}</li>
                  </ol>
                 <hr/>
                 <div class="d-flex justify-content-between align-items-center">
@@ -51,11 +54,13 @@ function cC(value) {
                 </div>
             </div>
         </div>`;
-      inject.appendChild(createDiv);
-      loader(false)
+      contentSection.appendChild(createDiv);
+        loader(false)
     });
+    console.log(value)
      
 }
+
 
 //loader function
 
@@ -67,14 +72,13 @@ function loader(condition) {
 
 
 
-
+// modal function 
 async function modalData(id) {
   loader(true);
   const fetching = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
   const converting = await fetching.json();
    createModal(converting)
 }
-
 
 function createModal(value) {
 
@@ -100,8 +104,11 @@ function createModal(value) {
 
 document.getElementById("title").innerText = value.data.input_output_examples[0].input
 document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
-                          
+
+    loader(false)
+                         
 }
+
 
 
 
