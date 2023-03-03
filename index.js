@@ -57,7 +57,7 @@ function createCards(value) {
       contentSection.appendChild(createDiv);
         loader(false)
     });
-    console.log(value)
+    
      
 }
 
@@ -74,7 +74,7 @@ function loader(condition) {
 
 // modal function 
 async function modalData(id) {
-  loader(true);
+  //loader(true);
   const fetching = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
   const converting = await fetching.json();
    createModal(converting)
@@ -84,9 +84,30 @@ function createModal(value) {
 
     document.getElementById("description").innerText = value.data.description;
 
-    document.getElementById("price1").innerText = value.data.pricing[0].price;
-    document.getElementById("price2").innerText = value.data.pricing[1].price;
-    document.getElementById("price3").innerText = value.data.pricing[2].price;
+    const price1 = document.getElementById("price1");
+    if (value.data.pricing[0].price == 0 || value.data.pricing[0].price == "No cost") {
+        price1.innerText = "free of cost"
+    } else {
+        price1.innerText = value.data.pricing[0].price
+    }
+    
+    const price2 = document.getElementById("price2");
+    if (value.data.pricing[1].price == 0 || value.data.pricing[1].price == "No cost") {
+        price2.innerText = "free of cost"
+    } else {
+        price2.innerText = value.data.pricing[1].price
+    }
+
+    const price3 = document.getElementById("price3");
+    if ( value.data.pricing[2].price == 0 || value.data.pricing[2].price == "No cost") {
+      price3.innerText = "free of cost";
+    } else {
+      price3.innerText = value.data.pricing[2].price;
+    }
+
+      
+    
+     
 
 
     document.getElementById("feature1").innerText = value.data.features[1].feature_name;
@@ -94,18 +115,36 @@ function createModal(value) {
     document.getElementById("feature3").innerText = value.data.features[3].feature_name;
     
     
-    document.getElementById("integrations1").innerText = value.data.integrations[0];
-    document.getElementById("integrations2").innerText = value.data.integrations[1];
-    document.getElementById("integrations3").innerText = value.data.integrations[2];   
+    document.getElementById("integrations1").innerText = value.data.integrations[0] ? value.data.integrations[1] : "data not found";
+    document.getElementById("integrations2").innerText = value.data.integrations[1] ? value.data.integrations[1] : 'data not found'
+    document.getElementById("integrations3").innerText = value.data.integrations[2] ? value.data.integrations[2] : 'data not found'
 
 
     const imgCrd = document.getElementById("img");
     imgCrd.setAttribute('src', `${value.data.image_link[0]}`);
 
 document.getElementById("title").innerText = value.data.input_output_examples[0].input
-document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
+    document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
+    
 
-    loader(false)
+    
+     
+   const accorcy=  document.getElementById("accorcy")
+          
+    if (value.data.accuracy.score !== null) {
+        const accuracyValue = value.data.accuracy.score;
+        let acch = accuracyValue.toString();
+        let toArry = acch.split(".");
+        toArry.shift();
+        const toString = toArry.toString();
+        accorcy.innerText = `accuracy ${toString}%`;
+    } else {
+        accorcy.innerText = ""
+    }
+
+     
+     
+     console.log(value)
                          
 }
 
