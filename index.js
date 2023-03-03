@@ -23,13 +23,15 @@ document.getElementById("seeMore").addEventListener('click', function () {
 
 
 //  create card funtion 
+const arry = [];
 function createCards(value) {
     const contentSection = document.getElementById("content-section");
+    
     contentSection.textContent = ' ';
     
     value.forEach((element) => {
       const createDiv = document.createElement("div");
-      createDiv.classList.add("col-10", "col-lg-4");
+      createDiv.classList.add("col-10", "col-lg-4" ,'mx-auto');
       createDiv.innerHTML = `<div class="card">
             <img src="${element.image}" class="card-img-top" style="height:200px;" alt="...">
             <div class="card-body">
@@ -54,12 +56,19 @@ function createCards(value) {
                 </div>
             </div>
         </div>`;
-      contentSection.appendChild(createDiv);
+        contentSection.appendChild(createDiv);
+        arry.push(new Date(element.published_in));
         loader(false)
     });
     
-     
+
+    
 }
+
+document.getElementById('sortBtn').addEventListener('click', () => {
+    let dateSorting = arry.sort((a, b) => a - b);
+     dateSorting.forEach(v=>console.log(v))
+})
 
 
 //loader function
@@ -72,18 +81,21 @@ function loader(condition) {
 
 
 
-// modal function 
+// fetching modal function 
 async function modalData(id) {
-  //loader(true);
   const fetching = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
   const converting = await fetching.json();
    createModal(converting)
 }
 
+
+
+
+
 function createModal(value) {
 
     document.getElementById("description").innerText = value.data.description;
-
+    // pricing function 
     const price1 = document.getElementById("price1");
     if (value.data.pricing[0].price == 0 || value.data.pricing[0].price == "No cost") {
         price1.innerText = "free of cost"
@@ -109,26 +121,26 @@ function createModal(value) {
     
      
 
-
+// feature_name function 
     document.getElementById("feature1").innerText = value.data.features[1].feature_name;
     document.getElementById("feature2").innerText = value.data.features[2].feature_name 
     document.getElementById("feature3").innerText = value.data.features[3].feature_name;
     
-    
+    // integrations function 
     document.getElementById("integrations1").innerText = value.data.integrations[0] ? value.data.integrations[1] : "data not found";
     document.getElementById("integrations2").innerText = value.data.integrations[1] ? value.data.integrations[1] : 'data not found'
     document.getElementById("integrations3").innerText = value.data.integrations[2] ? value.data.integrations[2] : 'data not found'
 
-
+//modal image function
     const imgCrd = document.getElementById("img");
     imgCrd.setAttribute('src', `${value.data.image_link[0]}`);
-
+//modal title function
 document.getElementById("title").innerText = value.data.input_output_examples[0].input
     document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
     
 
     
-     
+//accorcy function 
    const accorcy=  document.getElementById("accorcy")
           
     if (value.data.accuracy.score !== null) {
@@ -140,18 +152,14 @@ document.getElementById("title").innerText = value.data.input_output_examples[0]
         accorcy.innerText = `accuracy ${toString}%`;
     } else {
         accorcy.innerText = ""
-    }
-
-     
-     
-     console.log(value)
+    }     
                          
 }
 
 
 
 
- 
+  
 
 
 

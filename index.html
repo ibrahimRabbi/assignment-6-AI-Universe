@@ -18,7 +18,7 @@
     <!-- sort button section  -->
     <div class="text-center mt-4">
         <h3>AI Universe Hub</h3>
-        <button class="mt-3">Sort By Date</button>
+        <button id="sortBtn" class="mt-3 rounded">Sort By Date</button>
     </div>
 
     <!-- main content section  -->
@@ -26,7 +26,7 @@
         <div id="content-section" class="row row-gap-4"></div>
 
         <div class="text-center mt-5">
-            <button id="seeMore">see more</button>
+            <button class="rounded" id="seeMore">see more</button>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
     <!-- modal section  -->
     <section id="modal-section">
         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div style="max-width: 75% !important; position: relative;" class="modal-dialog">
+            <div style="max-width: 75% !important; position: relative;" class="modal-dialog mx-auto">
                 <div class="modal-content">
                     <button
                         style="position:absolute; right:-20px; top:-30px; opacity:80% ;"
@@ -60,12 +60,12 @@
                     <i class="fa-solid fa-circle-xmark"></i>
                     </button>
 
-                    <div id="modal" class=" my-5 modal-body row">
-                        <div class="col-6">
+                    <div id="modal" class=" my-5 modal-body row row-gap-3">
+                        <div class=" mx-auto col-lg-6 col-10">
                             <div class="card border-danger">
                                 <h5 id="description" class="p-3"></h5>
 
-                                <div class="my-3 d-flex justify-content-evenly align-items-center">
+                                <div class="my-3 d-flex flex-wrap row-gap-2 justify-content-evenly align-items-center">
                                     <div class="p-2 text-success fw-bold">
                                         <p id="price1"> </p>
                                     </div>
@@ -77,7 +77,7 @@
                                     </div>
                                 </div>
 
-                                <div class="my-4 d-flex justify-content-around">
+                                <div class="my-4 d-block d-lg-flex justify-content-around">
                                     <div>
                                         <h4>Features</h4>
                                         <ul>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
 
-                        <div id="img-card" class="col-6 position-relative">
+                        <div id="img-card" class=" mx-auto col-lg-6 col-10 position-relative">
                             <div id="card" class="card text-center">
                                 <img id="img" alt="" srcset="">
                                 <h5 id="title" class="card-title"></h5>
