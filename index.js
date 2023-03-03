@@ -6,6 +6,14 @@ async function avoid(func) {
     func(final.data.tools);
 }
 
+document.getElementById("sortBtn").addEventListener("click", () => {
+  
+   avoid(sortingFunc)
+});
+
+ 
+
+
 // 6 card generet function  
 function createElement(value) {
     const sliced = value.slice(0, 6)
@@ -23,7 +31,6 @@ document.getElementById("seeMore").addEventListener('click', function () {
 
 
 //  create card funtion 
-const arry = [];
 function createCards(value) {
     const contentSection = document.getElementById("content-section");
     
@@ -39,7 +46,7 @@ function createCards(value) {
                  <ol>
                      <li>${element.features[0]}</li>
                      <li>${element.features[1]}</li>
-                     <li>${element.features[0]}</li>
+                     <li>${element.features[2]}</li>
                  </ol>
                 <hr/>
                 <div class="d-flex justify-content-between align-items-center">
@@ -57,18 +64,16 @@ function createCards(value) {
             </div>
         </div>`;
         contentSection.appendChild(createDiv);
-        arry.push(new Date(element.published_in));
+         
         loader(false)
+         
     });
     
 
     
 }
 
-document.getElementById('sortBtn').addEventListener('click', () => {
-    let dateSorting = arry.sort((a, b) => a - b);
-     dateSorting.forEach(v=>console.log(v))
-})
+
 
 
 //loader function
@@ -135,10 +140,11 @@ function createModal(value) {
     const imgCrd = document.getElementById("img");
     imgCrd.setAttribute('src', `${value.data.image_link[0]}`);
 //modal title function
-document.getElementById("title").innerText = value.data.input_output_examples[0].input
-    document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
+    document.getElementById("title").innerText = value.data.input_output_examples[0].input
+    const cardText = value.data.input_output_examples[0].input
+    document.getElementById("card-text").innerText = cardText  ? cardText : 'no! not yet take a break'
     
-
+console.log(value)
     
 //accorcy function 
    const accorcy=  document.getElementById("accorcy")
