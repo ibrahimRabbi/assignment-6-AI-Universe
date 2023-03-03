@@ -66,6 +66,8 @@ function loader(condition) {
 
 
 
+
+
 async function modalData(id) {
   loader(true);
   const fetching = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
@@ -73,10 +75,10 @@ async function modalData(id) {
    createModal(converting)
 }
 
+
 function createModal(value) {
 
     document.getElementById("description").innerText = value.data.description;
-
 
     document.getElementById("price1").innerText = value.data.pricing[0].price;
     document.getElementById("price2").innerText = value.data.pricing[1].price;
@@ -93,23 +95,12 @@ function createModal(value) {
     document.getElementById("integrations3").innerText = value.data.integrations[2];   
 
 
-    const imgCrd = document.getElementById('img-card');
-    imgCrd.innerHTML = " "
-    const create = document.createElement('div')
-    create.classList.add('card');
-    create.innerHTML = ` 
-                                <img src="${value.data.image_link[1]}" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.
-                                    </p>
-                                </div>`;
-    
-    imgCrd.appendChild(create)
+    const imgCrd = document.getElementById("img");
+    imgCrd.setAttribute('src', `${value.data.image_link[0]}`);
 
-    console.log(value)
-                            
+document.getElementById("title").innerText = value.data.input_output_examples[0].input
+document.getElementById("card-text").innerText = value.data.input_output_examples[0].output;
+                          
 }
 
 

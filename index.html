@@ -4,30 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>AI Universe</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
     <style>
-        button {
-            background-color: rgb(224, 84, 42);
-            border: none;
-            color: aliceblue;
-            border-radius: 7px;
-            padding: 8px 10px;
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        .date-area {
-            color: rgb(116, 114, 114);
-            font-size: 13px;
-        }
-
-        .modal-button {
-            font-size: 30px;
-            color: rgb(250, 111, 111);
-        }
+        
     </style>
 </head>
 
@@ -69,37 +52,39 @@
     <!-- modal section  -->
     <section id="modal-section">
         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div style="max-width: 80% !important" class="modal-dialog">
+            <div style="max-width: 75% !important; position: relative;" class="modal-dialog">
                 <div class="modal-content">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                        style="position:absolute; right:-20px; top:-30px; opacity:80% ;"
+                        type="button" class="deletBtn"  data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
 
-                    <div id="modal" class="modal-body row">
+                    <div id="modal" class=" my-5 modal-body row">
                         <div class="col-6">
-                            <div class="card">
-                                <h5 id="description">
-                                    
-                                </h5>
+                            <div class="card border-danger">
+                                <h5 id="description" class="p-3"></h5>
 
-                                <div class="d-flex justify-content-evenly align-items-center">
-                                    <div>
-                                        <p id="price1">Lorem, ipsum.</p>
+                                <div class="my-3 d-flex justify-content-evenly align-items-center">
+                                    <div class="p-2 text-success fw-bold">
+                                        <p id="price1"> </p>
                                     </div>
-                                    <div>
-                                        <p id="price2">Lorem, ipsum.</p>
+                                    <div class="p-2 text-warning fw-bold">
+                                        <p id="price2"> </p>
                                     </div>
-                                    <div>
-                                        <p id="price3">Lorem, ipsum.</p>
+                                    <div class="p-2 text-danger fw-bold">
+                                        <p id="price3"> </p>
                                     </div>
                                 </div>
 
-                                <div class="d-flex justify-content-around">
+                                <div class="my-4 d-flex justify-content-around">
                                     <div>
                                         <h4>Features</h4>
                                         <ul>
                                             <li id="feature1"></li>
                                             <li id="feature2"></li>
                                             <li id="feature3"></li>
-                                            
+
                                         </ul>
                                     </div>
                                     <div>
@@ -108,7 +93,7 @@
                                             <li id="integrations1"> </li>
                                             <li id="integrations2"> </li>
                                             <li id="integrations3"> </li>
-                                             
+
                                         </ul>
                                     </div>
                                 </div>
@@ -116,7 +101,17 @@
                         </div>
 
                         <div id="img-card" class="col-6">
-                            
+                            <div id="card" class="card">
+                                <img id="img" alt="" srcset="">
+                                <h5 id="title" class="card-title"></h5>
+                                <div class="card-body">
+                                    <p id="card-text" class="card-text">
+                                        Some quick example text to build on the card title and
+                                        make up the bulk of the card's content.
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
 
                     </div>

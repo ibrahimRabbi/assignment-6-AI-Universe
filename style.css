@@ -1,0 +1,35 @@
+button {
+            background-color: rgb(216, 68, 24);
+            border: none;
+            color: aliceblue;
+            border-radius: 7px;
+            padding: 8px 10px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .date-area {
+            color: rgb(116, 114, 114);
+            font-size: 13px;
+        }
+
+        .modal-button {
+            font-size: 30px;
+            color: rgb(248, 8, 8);
+            opacity: 80%;
+        }
+
+        .border-danger {
+            background-image: linear-gradient(rgba(255, 0, 0, 0.274), rgba(250, 4, 4, 0.288));
+        }
+
+        .p-2 {
+            background-color: whitesmoke;
+            border-radius: 5px;
+        }
+
+        .deletBtn{
+            font-size: 30px;
+            color: red;
+            background: none;
+        }
